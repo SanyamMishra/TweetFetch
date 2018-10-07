@@ -1,0 +1,7 @@
+<input type="text" placeholder="search user" #input>
+<ul>
+  <li *ngFor="let item of searchItems" (click)="onClick(item)">
+    <img src="{{item.profile_image_url_https}}" alt="{{item.screen_name}} profile image">
+    {{ item.name }} (@{{ item.screen_name }})
+  </li>
+</ul>
