@@ -1,7 +1,24 @@
-<input type="text" placeholder="search user" #input>
-<ul>
+<!-- <mat-form-field>
+  <input matInput placeholder="search user" #input>
+</mat-form-field> -->
+
+<mat-form-field>
+  <mat-icon matPrefix>search</mat-icon>
+  <input type="text" #input placeholder="search user" matInput [formControl]="myControl" [matAutocomplete]="auto">
+</mat-form-field>
+
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="fun($event)">
+  <mat-option *ngFor="let item of searchItems" [value]="item">
+    <div class="search-result">
+      <img src="{{ item.profile_image_url_https }}" alt="">
+      <span>{{ item.name }} (@{{ item.screen_name }})</span>
+    </div>
+  </mat-option>
+</mat-autocomplete>
+
+<!-- <ul>
   <li *ngFor="let item of searchItems" (click)="onClick(item)">
     <img src="{{item.profile_image_url_https}}" alt="{{item.screen_name}} profile image">
     {{ item.name }} (@{{ item.screen_name }})
   </li>
-</ul>
+</ul> -->

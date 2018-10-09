@@ -1,3 +1,31 @@
-<h1>TweetFetchTF</h1>
-<user-search (selected)="onSearchItemSelect($event)"></user-search>
-<div id="container"></div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>TweetFetch</span>
+    <span class="spacer"></span>
+    <user-search (selected)="onSearchItemSelect($event)" #search></user-search>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  
+  <mat-sidenav opened mode="side" disableClose fixedInViewport="true" fixedTopGap="64">
+    <div class="mat-title">Recent Searches</div>
+    
+    <mat-list *ngIf="search.searchHistory.length">
+      <mat-list-item *ngFor="let item of search.searchHistory">
+        <button mat-button (click)="displayTweets(item.screen_name)">{{ item.name }}</button>
+      </mat-list-item>
+    </mat-list>
+    
+    <div class="mat-body-1" *ngIf="!search.searchHistory.length">Make some searches to show here</div>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <div id="spinner-container" *ngIf="fetchingTweets">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+    
+    <div id="tweets-container" [style.display]="fetchingTweets ? 'none': 'inline-block'"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
