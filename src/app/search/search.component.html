@@ -3,7 +3,7 @@
   <input type="text" #input placeholder="search user" matInput [formControl]="myControl" [matAutocomplete]="auto">
 </mat-form-field>
 
-<mat-autocomplete #auto="matAutocomplete" (optionSelected)="fun($event)">
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelection($event)">
   <mat-option *ngFor="let item of searchItems" [value]="item">
     <div class="search-result">
       <img src="{{ item.profile_image_url_https }}" alt="">
