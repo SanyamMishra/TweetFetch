@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit {
       });
   }
 
-  fun(data) {
+  onSelection(data) {
     this.myControl.reset();
     this.searchItems = [];
 
