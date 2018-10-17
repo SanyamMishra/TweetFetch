@@ -13,10 +13,6 @@ export class AppComponent {
   fetchingTweets = false;
 
   constructor(private http: Http, private ref: ChangeDetectorRef, private afs: AngularFirestore) {
-    this.bindTweetRenderedEvent();
-  }
-
-  bindTweetRenderedEvent() {
     (<any>window).twttr.ready(
       twttr => {
         twttr.events.bind(
