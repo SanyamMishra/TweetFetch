@@ -1,7 +1,3 @@
-<!-- <mat-form-field>
-  <input matInput placeholder="search user" #input>
-</mat-form-field> -->
-
 <mat-form-field>
   <mat-icon matPrefix>search</mat-icon>
   <input type="text" #input placeholder="search user" matInput [formControl]="myControl" [matAutocomplete]="auto">
@@ -15,10 +11,3 @@
     </div>
   </mat-option>
 </mat-autocomplete>
-
-<!-- <ul>
-  <li *ngFor="let item of searchItems" (click)="onClick(item)">
-    <img src="{{item.profile_image_url_https}}" alt="{{item.screen_name}} profile image">
-    {{ item.name }} (@{{ item.screen_name }})
-  </li>
-</ul> -->
